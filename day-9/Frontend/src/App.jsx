@@ -7,13 +7,12 @@ const App = () => {
 
 //for fetching notes from backend
   function fetchNote(){
-     axios.get("http://localhost:3000/api/notes")  
+     axios.get("https://backend-lsz9.onrender.com/api/notes")  
     .then((res)=>{
       setNotes(res.data.note);
       
     })
   }
-  
   useEffect(()=>{
      fetchNote()
   },[])
@@ -24,7 +23,7 @@ const App = () => {
     const{title,description} =e.target.elements
     console.log(title.value,description.value);
 
-    axios.post("http://localhost:3000/api/notes",{  
+    axios.post("https://backend-lsz9.onrender.com/api/notes",{  
       title:title.value,
       description:description.value
     })
@@ -39,7 +38,7 @@ const App = () => {
 
   //to delete note
 function deleteHandler(noteId){
-  axios.delete("http://localhost:3000/api/notes/"+noteId) 
+  axios.delete("https://backend-lsz9.onrender.com/api/notes/"+noteId) 
   .then((res)=>{
        console.log(res.data);
        fetchNote()
@@ -50,7 +49,7 @@ function deleteHandler(noteId){
  //to update note
  function updateHandler(noteId){
   const newDescription = prompt("Enter New Description")
-   axios.patch("http://localhost:3000/api/notes/"+noteId,{description:newDescription})
+   axios.patch("https://backend-lsz9.onrender.com/api/notes/"+noteId,{description:newDescription})
    .then((res)=>{
     console.log(res.data);
     fetchNote()
