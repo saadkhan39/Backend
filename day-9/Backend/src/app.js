@@ -7,7 +7,7 @@ const path = require("path")
 const app = express()
 app.use(express.json())
 app.use(cors()) // for cors policy error//
-app.use(express.static("./public"))
+app.use(express.static("./public")) //for integrating frontend with backend//
 
 //POST api to create note
 app.post("/api/notes",async(req,res)=>{
@@ -57,7 +57,7 @@ app.patch("/api/notes/:id",async(req,res)=>{
 })
 
 
-
+//wild card route , handles the uncreated api's.
 app.use("*name",(req,res)=>{
     res.sendFile(path.join(__dirname,"..","/public/index.html"))
 })
