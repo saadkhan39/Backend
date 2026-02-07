@@ -1,0 +1,69 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html , body,#root{
+    height: 100%;
+    width: 100%;
+}
+html{
+  background-color: black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+}
+.notes{
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+.note{
+  background-color: rgb(41, 39, 39);
+  color: rgb(165, 161, 161);
+  max-width: 20rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  
+}
+
+input{
+  padding: 1rem;
+  background-color:rgb(194, 188, 188);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: black;
+  margin: 1rem;
+  border: 2px solid   rgb(6, 6, 80);
+
+}
+.btn{
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+button{
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  background-color:  rgb(6, 6, 80);
+  color: white;
+}
+button:active{
+  scale: 0.95;
+}
+.delete ,.edit{
+  padding: 0.50rem;
+}
+.delete{
+  background-color: rgb(184, 23, 23);
+  color: white;
+  white-space: nowrap;
+}
+.edit{
+  background-color: rgb(83, 83, 240);
+  color: white;
+    white-space: nowrap;
+
+}
