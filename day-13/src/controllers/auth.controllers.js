@@ -1,0 +1,103 @@
+const userModel = require("../models/user.model")
+const bcrypt = require('bcryptjs')
+const jwt = require("jsonwebtoken")
+
+
+//register controller 
+async function registerController(req,res) {
+    const{username,email,password,bio,profileImage} = req.body
+
+    const isUserAlreradyExists= await userModel.findOne({
+        $or:[
+           {username},
+           {email}
+        ]
+    })
+
+    if(isUserAlreradyExists){
+      return res.status(409).json({
+            message:"user already exists"+(isUserAlreradyExists.email == email ? "email already exists":"username already exits")
+
+        })
+    }
+    
+    const hash = await bcrypt.hash(password,10)
+
+    const user = await userModel.create({
+        username,
+        email,
+        password:hash,
+        bio,
+        profileImage
+    })
+    const token = jwt.sign({
+        id:user._id
+
+    },process.env.JWT_SECRET,
+      { expiresIn:"1d"}
+)
+   res.cookie("token",token)
+
+   res.status(201).json({
+    message:"user registered successfully",
+    user:{
+        username:user.username,
+        email:user.email,
+        bio:user.bio,
+        profileImage:user.profileImage
+    }
+   })
+    
+}
+
+//login  controller
+async function loginController(req,res){
+    const{username,email,password} = req.body
+
+    const user = await userModel.findOne({
+        $or:[
+            {username:username},
+            {email:email}
+        ]
+    })
+    
+    if(!user){
+        return res.status(409).json({
+            message:"user not found"
+        })
+    }
+
+    
+
+    const isPasswordValid = await bcrypt.compare(password,user.password)
+
+    if(!isPasswordValid){
+        return res.status(401).json({
+            message:"passsword invalid"
+        })
+    }
+    
+    const token = jwt.sign({
+        id:user._id,
+    },process.env.JWT_SECRET,
+     {expiresIn:"1d"}
+)
+    res.cookie("token",token)
+
+    res.status(201).json({
+        message:"user loggedIn successfully",
+        user:{
+        username:user.username,
+        email:user.email,
+        bio:user.bio,
+        profileImage:user.profileImage
+    }
+    })
+
+}
+
+
+  
+
+
+module.exports = {registerController,loginController}
