@@ -1,0 +1,40 @@
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+main .form-container {
+  height: -moz-fit-content;
+  height: fit-content;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+main .form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main .form-container form input,
+main .form-container form button {
+  border: none;
+  outline: none;
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+}
+main .form-container form button {
+  background-color: rgb(218, 7, 24);
+  color: whitesmoke;
+}
+main .form-container form button:active {
+  scale: 0.95;
+}
+main .form-container form .toggle {
+  color: rgb(218, 7, 24);
+  text-decoration: none;
+}/*# sourceMappingURL=form.css.map */
