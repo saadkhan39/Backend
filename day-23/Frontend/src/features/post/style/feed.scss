@@ -1,0 +1,133 @@
+.feed-page {
+  background-color: #181616;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+ 
+  .feed {
+    width: 100%;
+    max-width: 300px;
+
+    .posts {
+      display: flex;
+      flex-direction: column;
+
+      .post {
+        background: #fff;
+        border: 1px solid #dbdbdb;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+        // USER HEADER
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 12px 14px;
+
+          .img-wrapper {
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid rgba(255, 0, 0, 0);
+            background:
+              linear-gradient(white, white) padding-box,
+              conic-gradient(
+                  from 0deg,
+                  #f09433,
+                  #e6683c,
+                  #dc2743,
+                  #cc2366,
+                  #bc1888,
+                  #f09433
+                )
+                border-box;
+          }
+          img {
+            width: 2rem;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+          }
+
+          p {
+            font-size: 14px;
+            font-weight: 600;
+            color: #262626;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        // POST IMAGE
+        > img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          max-height: 600px;
+        }
+
+        // ICONS SECTION
+        .icons {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 14px;
+
+          button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 19px;
+            color: #262626;
+            transition: all 0.2s ease;
+
+            &:hover {
+              color: #8e8e8e;
+              transform: scale(1.1);
+            }
+          }
+
+          .fill-heart {
+            color: red;
+          }
+
+          .left {
+            display: flex;
+            gap: 12px;
+          }
+          .like {
+            background-color: red;
+          }
+        }
+
+        // BOTTOM (CAPTION)
+        .bottom {
+          padding: 0 14px 14px;
+
+          p {
+            font-size: 14px;
+            color: #262626;
+            margin: 4px 0;
+
+            &:first-child {
+              font-weight: 600;
+              display: inline;
+              margin-right: 6px;
+            }
+
+            &:last-child {
+              color: #555;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+  }
+}
