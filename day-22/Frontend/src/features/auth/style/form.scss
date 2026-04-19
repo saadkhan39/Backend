@@ -16,7 +16,7 @@ main {
     .form-container {
         @include flex-column(1rem);
         
-        min-width: 400px;
+        min-width: 300px;
     }
     
     form {
@@ -26,9 +26,15 @@ main {
         input{
             border: none;
             outline: none;
-            padding-inline: 1.2rem;
-            padding-block: 1rem;
-            border-radius: 1rem;
+            padding-inline: 1rem;
+            padding-block: 0.5rem;
+            border-radius: 0.5rem;
+        }
+        p{
+            .toggle{
+                text-decoration: none;
+                color: #f10c32;
+            }
         }
         
     }
