@@ -1,6 +1,7 @@
 {
-  "name": "day-24",
+  "name": "day-34-gen-ai",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -9,14 +10,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "@langchain/core": "^1.1.46",
-    "@langchain/mistralai": "^1.0.8",
-    "dotenv": "^17.4.2",
-    "langchain": "^1.4.0",
-    "node-mailer": "^0.1.1",
-    "readline-sync": "^1.4.10",
-    "zod": "^4.4.3"
+    "@langchain/mistralai": "^1.0.7",
+    "dotenv": "^17.3.1",
+    "langchain": "^1.2.31",
+    "readline-sync": "^1.4.10"
   }
 }
